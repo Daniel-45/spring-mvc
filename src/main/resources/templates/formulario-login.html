@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Aplicación web para publicar ofertas de trabajo">
+<meta name="author" content="Daniel Pompa Pareja">
+<link rel="icon" th:href="@{/images/logo.ico}">
+<title>Login</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Mis estilos CSS -->
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	rel="stylesheet">
+</head>
+
+<body>
+	<header th:insert="fragments/navbar :: navbar"></header>
+	
+	<main role="main">
+		<div id="login">
+			<div class="container">
+				<div class="row justify-content-center align-items-center mt-5 pt-5">
+					<div class="mt-5 mb-5 col-lg-6 col-md-8 col-sm-12">
+						<div class="col-md-12">
+							<form th:action="@{/login}" method="POST">
+								<h1 class="text-center text-primary font-weight-bold">LOGIN</h1>
+								<div th:if="${param.error}">
+									<p class="alert alert-danger text-center font-weight-bold">NOMBRE DE USUARIO O CONTRASEÑA NO VÁLIDOS</p>
+									<div th:if="${message != null}" class='alert alert-danger' th:text="${message}" role='alert'></div>
+								</div>
+								<div class="form-group">
+									<label for="username" class="text-primary"></label><br> 
+									<input type="text" name="username" id="username" class="form-control" placeholder="Nombre de usuario">
+								</div>
+								<div class="form-group">
+									<label for="password" class="text-primary"></label><br> 
+									<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+								</div>
+								<div class="form-group">
+									<label for="remember-me" class="text-primary"> 
+									<span><input id="remember-me" name="remember-me" type="checkbox"></span> 
+									<span class="font-weight-normal">Recuérdame</span><br>
+									</label> 
+									<input type="submit" name="submit" class="btn btn-primary btn-block mb-3" value="Iniciar sesión">
+									<div class="form-group">
+										<span id="register-link" class="text-primary">¿Todavía no estás registrado?</span> 
+										<span><a th:href="@{/signup}" class="text-primary">Registrate</a></span>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer th:insert="fragments/footer :: footer" class="footer fixed-bottom bg-dark text-light"></footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

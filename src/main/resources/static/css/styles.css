@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+/* Fuentes personalizadas */
+@font-face {
+	font-family: "houschka";
+	src: url("./../fonts/houschka.ttf");
+}
+
+* {
+	font-family: "houschka", Arial, Helvetica, sans-serif;
+}
+
+/* Estilos generales */
+.image-logo {
+	width: 80px;
+	height: 80px;
+}
+
+a {
+	text-decoration: none !Important;
+}
+
+
+label  {
+	font-weight: bold;
+}
+
+
+/* Menú de navegación */
+.nav-link:link {
+	color: white !Important;
+}
+
+.nav-link:hover {
+	color: #cccccc !Important;
+}
+
+
+/* Detalle de oferta de empleo */
+.details-image {
+	width: 100%;
+	height: auto;
+}
+
+/* Tabla lista ofertas de empleo */
+#tabla-vacantes th:first-child {
+	width: 20%;
+}
+
+#tabla-vacantes th:nth-child(2) {
+	width: 35%;
+}
+
+#tabla-vacantes th:nth-child(3) {
+	width: 20%;
+	text-align: center;
+}
+
+#tabla-vacantes th:nth-child(4) {
+	width: 10%;
+	text-align: center;
+}
+
+#tabla-vacantes th:nth-child(5) {
+	width: 5%;
+	text-align: center;
+}
+
+#tabla-vacantes th:last-child {
+	width: 10%;
+	text-align: center;
+}
+
+#tabla-vacantes td:first-child {
+	width: 20%;
+}
+
+#tabla-vacantes td:nth-child(2) {
+	width: 35%;
+}
+
+#tabla-vacantes td:nth-child(3) {
+	width: 20%;
+	text-align: center;
+}
+
+#tabla-vacantes td:nth-child(4) {
+	width: 10%;
+	text-align: center;
+}
+
+#tabla-vacantes td:nth-child(5) {
+	width: 5%;
+	text-align: center;
+}
+
+#tabla-vacantes td:last-child {
+	width: 10%;
+	text-align: center;
+}
+
+#tabla-vacantes span {
+	width: 1.rem;
+}
+
+/* Tabla lista de categorías */
+#tabla-categoria th:first-child {
+	width: 5%;
+	text-align: center;
+}
+
+#tabla-categoria th:nth-child(2) {
+	width: 25%;
+}
+
+#tabla-categoria th:nth-child(3) {
+	width: 65%;
+}
+
+#tabla-categoria th:last-child {
+	width: 5%;
+	text-align: center;
+}
+
+#tabla-categoria td:first-child {
+	width: 5%;
+	text-align: center;
+}
+
+#tabla-categoria td:nth-child(2) {
+	width: 25%;
+}
+
+#tabla-categoria td:nth-child(3) {
+	width: 65%;
+}
+
+#tabla-categoria td:last-child {
+	width: 5%;
+	text-align: center;
+}
+
+/* Tabla usuarios */
+#tabla-usuario th:first-child {
+	width: 25%;
+}
+
+#tabla-usuario th:nth-child(2) {
+	width: 15%;
+}
+
+#tabla-usuario th:nth-child(3) {
+	width: 30%;
+}
+
+#tabla-usuario th:nth-child(4) {
+	width: 10%;
+}
+
+#tabla-usuario th:last-child {
+	width: 30%;
+}
+
+#tabla-usuario td:first-child {
+	width: 25%;
+}
+
+#tabla-usuario td:nth-child(2) {
+	width: 15%;
+}
+
+#tabla-usuario td:nth-child(3) {
+	width: 30%;
+}
+
+#tabla-usuario td:nth-child(4) {
+	width: 10%;
+}
+
+#tabla-usuario td:last-child {
+	width: 30%;
+	text-align: center;
+}
+
+/* Tabla solicitudes */
+#tabla-solicitudes th:first-child {
+	width: 20%;
+}
+
+#tabla-solicitudes th:nth-child(2) {
+	width: 27%;
+}
+
+#tabla-solicitudes th:nth-child(3) {
+	width: 18%;
+}
+
+#tabla-solicitudes th:nth-child(4) {
+	width: 10%;
+	text-align: center;
+}
+
+
+#tabla-solicitudes th:last-child {
+	width: 20%;
+	text-align: center;
+}
+
+#tabla-solicitudes td:first-child {
+	width: 20%;
+}
+
+#tabla-solicitudes td:nth-child(2) {
+	width: 27%;
+}
+
+#tabla-solicitudes td:nth-child(3) {
+	width: 18%;
+}
+
+#tabla-solicitudes td:nth-child(4) {
+	width: 10%;
+	text-align: center;
+}
+
+#tabla-solicitudes td:last-child {
+	width: 20%;
+	text-align: center;
+}
+
+/* Media Queries */
+@media ( max-width : 414px) {
+	.details-image {
+		width: 100%;
+		height: auto;
+		float: left;
+		margin-bottom: 1rem;
+	}
+	.btn-details, 
+	.btn-request,
+	.btn-save {
+		width: 100%;
+		display: block;
+	}
+}

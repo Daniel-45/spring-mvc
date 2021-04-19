@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "ticempleo.ruta.imagenes",
+    "type": "java.lang.String",
+    "description": "A description for 'ticempleo.ruta.imagenes'"
+  },
+  {
+    "name": "ticempleo.ruta.cv",
+    "type": "java.lang.String",
+    "description": "A description for 'ticempleo.ruta.cv'"
+  }
+]}

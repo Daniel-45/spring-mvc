@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Aplicación web para publicar ofertas de trabajo">
+<meta name="author" content="Daniel Pompa Pareja">
+<link rel="icon" th:href="@{/images/logo.ico}">
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Mis estilos CSS -->
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+<!-- jQuery UI -->
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+<title>Categorías</title>
+</head>
+
+<body>
+	<header th:insert="fragments/navbar :: navbar"></header>
+	
+	<main role="main">
+		<div class="container mt-5 pt-5 mb-5">
+			<div class="card">
+				<h4 class="card-header">
+					<strong>LISTADO DE CATEGORÍAS</strong>
+				</h4>
+				<div class="card-body">
+					<a class="btn btn-primary" th:href="@{/categorias/crear}" title="Crear nueva categoría" role="button">
+						<i class="fas fa-file" aria-hidden="true"></i> Nueva
+					</a>
+					<hr>
+					<div th:if="${message != null}" class='alert alert-success' th:text="${message}" role='alert'></div>
+					<div class="table-responsive">
+						<table id="tabla-categoria"
+							class="table table-bordered table-hover">
+							<thead class="thead-dark">
+								<tr>
+									<th class="align-middle" scope="col">ID</th>
+									<th class="align-middle" scope="col">NOMBRE</th>
+									<th class="align-middle" scope="col">DESCRIPCION</th>
+									<th class="align-middle" scope="col">EDITAR/ELIMINAR</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="categoria : ${categorias}">
+									<td class="align-middle" th:text="${categoria.id}"></td>
+									<td class="align-middle" th:text="${categoria.nombre}"></td>
+									<td class="align-middle" th:text="${categoria.descripcion}"></td>
+									<td class="align-middle">
+										<a th:href="@{/categorias/editar/{id} (id=${categoria.id})}" class="btn btn-success btn-sm" role="button" title="Editar categoría">
+											<i class="fas fa-pencil-alt" aria-hidden="true"></i>
+										</a> 
+										<a th:href="@{/categorias/eliminar/{id} (id=${categoria.id})}" onclick="return confirm('¿Estas seguro de que quieres eliminar la categoría?')" class="btn btn-success btn-sm" role="button" title="Eliminar categoría">
+											<i class="fas fa-trash" aria-hidden="true"></i>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<nav th:if="${categorias.totalPages > 0}" aria-label="Page navigation example">
+							<ul class="pagination justify-content-center">
+								<li class="page-item" th:classappend="${categorias.number == 0 ? 'disabled' : ''}">
+									<a th:href="@{/categorias/index-categorias-paginado(page=${categorias.number - 1})}" class="page-link">Anterior</a>
+								</li>
+
+								<li class="page-item" th:classappend="${i eq categorias.number + 1} ? 'active'" th:each="i : ${#numbers.sequence( 1, categorias.totalPages, 1)}">
+									<a class="page-link" th:href="@{/categorias/index-categorias-paginado?page={page} (page=${i-1}) }" th:text="${i}" th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+								</li>
+								<li class="page-item" th:classappend="${categorias.number == (categorias.totalPages - 1) ? 'disabled' : ''}">
+								<li class="page-item">
+									<a th:href="@{/categorias/index-categorias-paginado(page=${categorias.number + 1})}" class="page-link">Siguiente</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer th:insert="fragments/footer :: footer" class="footer fixed-bottom bg-dark text-light"></footer>
+
+	<!-- Bootstrap and jQuery -->
+	<script th:src="@{/jquery/jquery-3.5.1.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
